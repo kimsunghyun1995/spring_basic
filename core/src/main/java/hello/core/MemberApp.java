@@ -9,10 +9,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class MemberApp {
     public static void main(String[] args) {
-//        AppConfig appconfig = new AppConfig();
-//        MemberService memberService = appconfig.memberService();
+        AppConfig appconfig = new AppConfig();
+        MemberService memberService = appconfig.memberService();
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
+        applicationContext.getBean("memberService", MemberService.class);
 
         Member member = new Member(1L, "memberA", Grade.VIP);
         memberService.join(member);
